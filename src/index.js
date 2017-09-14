@@ -1,24 +1,59 @@
 import React from 'react'
 import { render } from 'react-dom'
 import UnorderedList from './UnorderedList'
+import NewItem from './NewItem'
+import './styles.scss'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = ({ arr: ['first', 'second', 'third', 'fourth', 'fifth'] })
+    this.state = ({
+      items: [
+        { name: 'first', done: false },
+        { name: 'second', done: false },
+        { name: 'third', done: false }
+      ]
+    })
 
+    this.addItem = this.addItem.bind(this)
+    this.switchStatus = this.switchStatus.bind(this)
     this.removeItem = this.removeItem.bind(this)
   }
 
+  addItem (el) {
+    // add new todo only when user press Enter
+    // if input value is empty, don't add new todo
+    if (el.keyCode !== 13 || !el.target.value) return
+    // add new todo to items array
+    this.setState({
+      items: [...this.state.items, { name: el.target.value, done: false }]
+    })
+    // clear input after adding new todo
+    el.target.value = ''
+  }
+
+  // set item as done with one click
+  switchStatus (el) {
+    const items = this.state.items
+    items[el.target.id].done = !items[el.target.id].done
+
+    this.setState({ items })
+  }
+
+  // remove item with double click
   removeItem (el) {
-    this.setState(this.state.arr.splice(el.target.id, 1))
+    this.setState(this.state.items.splice(el.target.id, 1))
   }
 
   render () {
     return (
       <div>
-        <UnorderedList items={this.state.arr} removeItem={this.removeItem} />
+        <UnorderedList
+          items={this.state.items}
+          removeItem={this.removeItem}
+          switchStatus={this.switchStatus} />
+        <NewItem addItem={this.addItem} />
       </div>
     )
   }

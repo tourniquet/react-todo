@@ -1,8 +1,14 @@
 import React from 'react'
 
 const ListItem = props => (
-  <li key={props.key} id={props.id} onClick={props.onClick}>
-    {props.item}
+  <li
+    key={props.key}
+    id={props.id}
+    onClick={props.switchStatus}
+    onDoubleClick={props.removeItem}
+    className={props.item.done ? 'done' : null}
+  >
+    {props.item.name}
   </li>
 )
 

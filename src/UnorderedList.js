@@ -9,7 +9,8 @@ const UnorderedList = props => {
           key={i}
           id={i}
           item={item}
-          onClick={props.removeItem} />
+          switchStatus={props.switchStatus}
+          removeItem={props.removeItem} />
         ))
       }
     </ul>
