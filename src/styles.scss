@@ -1,7 +1,36 @@
-ul {
-  list-style: none;
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=cyrillic');
 
-  li.done {
-    text-decoration: line-through;
+body {
+  background: #f0efe9;
+}
+
+#app {
+  background: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+  margin-top: 127px;
+  width: 375px;
+
+  ul {
+    font-size: 18px;
+    list-style: none;
+    padding: 127px 110px 0 29px;
+
+    li {
+      display: block;
+      line-height: 63px;
+      margin: 0 auto;
+      width: 80%;
+    }
+  
+    li.done {
+      // color: #bdc0ca;
+      // text-decoration: line-through;
+    }
+  }
+
+  input[type=text] {
+    margin: 0 110px;
+    max-width: 100%;
   }
 }
