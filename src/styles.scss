@@ -2,35 +2,47 @@
 
 body {
   background: #f0efe9;
-}
 
-#app {
-  background: #fff;
-  font-family: 'Roboto', sans-serif;
-  margin: 0 auto;
-  margin-top: 127px;
-  width: 375px;
+  #app {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    margin-top: 127px;
+    width: 375px;
 
-  ul {
-    font-size: 18px;
-    list-style: none;
-    padding: 127px 110px 0 29px;
+    .container {
+      padding-bottom: 64px;
 
-    li {
-      display: block;
-      line-height: 63px;
-      margin: 0 auto;
-      width: 80%;
+      h2 {
+        padding-top: 34px;
+        padding-left: 24px;
+        color: #ababab;
+      }
+
+      ul {
+        font-size: 18px;
+        list-style: none;
+        padding: 0 24px;
+    
+        li {
+          display: block;
+          line-height: 63px;
+          margin: 0 auto;
+          width: 80%;
+        }
+      
+        li.done {
+          color: #bdc0ca;
+        }
+      }
+
+      input[type=text] {
+        border: 1px solid #bdc0ca;
+        display: block;
+        height: 40px;
+        margin: 0 auto;
+        padding: 0 44px;
+      }
     }
-  
-    li.done {
-      // color: #bdc0ca;
-      // text-decoration: line-through;
-    }
-  }
-
-  input[type=text] {
-    margin: 0 110px;
-    max-width: 100%;
-  }
+  }  
 }

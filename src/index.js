@@ -52,7 +52,11 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='container'>
+        <h2>12 January, Tuesday</h2>
+
+        <hr />
+
         <UnorderedList
           items={this.state.items}
           removeItem={this.removeItem}

@@ -3,7 +3,7 @@ import React from 'react'
 const NewItem = props => (
   <input
     type='text'
-    placeholder='add new todo'
+    placeholder='...'
     onKeyDown={props.addItem} />
 )
 
