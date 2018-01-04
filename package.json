@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --content-base=public/",
     "build": "webpack"
   },
   "author": "",
@@ -20,10 +21,12 @@
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5"
+    "uglifyjs-webpack-plugin": "^1.1.5",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }

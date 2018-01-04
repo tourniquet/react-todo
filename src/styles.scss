@@ -3,7 +3,7 @@
 body {
   background: #f0efe9;
 
-  #app {
+  #container {
     background: #fff;
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
@@ -30,9 +30,10 @@ body {
           margin: 0 auto;
           width: 80%;
         }
-      
+        
         li.done {
           color: #bdc0ca;
+          text-decoration: line-through;
         }
       }
 

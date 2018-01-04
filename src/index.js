@@ -1,7 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
+// components
 import UnorderedList from './UnorderedList'
 import NewItem from './NewItem'
+// styles
 import './styles.scss'
 
 class App extends React.Component {
@@ -78,5 +80,5 @@ class App extends React.Component {
 
 render(
   <App />,
-  document.getElementById('app')
+  document.querySelector('#container')
 )
