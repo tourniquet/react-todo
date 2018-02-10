@@ -7,13 +7,13 @@ const reducer = (state = initialState, action) => {
         value: action.value
       })
     case 'ADD_TODO':
-      console.log(state)
       // add new todo to items array
       return Object.assign({}, state, {
         items: state.items.concat({
           name: action.name,
           done: false
-        })
+        }),
+        value: ''
       })
     case 'DONE_TODO':
       return Object.assign({}, state, {

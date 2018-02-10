@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
   return {
-    items: state.items
+    items: state.items,
+    value: state.value
   }
 }
 
