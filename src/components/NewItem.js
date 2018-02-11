@@ -16,14 +16,6 @@ const NewItem = props => {
     }
   }
 
-  // set item as done with one click
-  const switchStatus = el => {
-    const items = this.state.items
-    items[el.target.id].done = !items[el.target.id].done
-
-    this.setState({ items })
-  }
-
   const setValue = el => {
     return {
       type: 'SET_VALUE',

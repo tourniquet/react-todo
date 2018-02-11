@@ -10,6 +10,7 @@ const reducer = (state = initialState, action) => {
       // add new todo to items array
       return Object.assign({}, state, {
         items: state.items.concat({
+          id: state.items.length,
           name: action.name,
           done: false
         }),
@@ -17,10 +18,14 @@ const reducer = (state = initialState, action) => {
       })
     case 'DONE_TODO':
       return Object.assign({}, state, {
-        done: true
+        items: state.items.map(item =>
+          (item.id === Number(action.id)) ? {...item, done: !item.done} : item
+        )
       })
-    case 'UNDONE_TODO':
-      return
+    case 'REMOVE_TODO':
+      return Object.assign({}, state, {
+        items: state.items.filter(item => item.id !== Number(action.id))
+      })
     default:
       return state
   }
