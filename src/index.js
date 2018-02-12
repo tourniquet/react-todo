@@ -18,23 +18,18 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-class App extends React.Component {
-  render () {
-    // console.log(store)
-    return (
-      <Provider store={store}>
-        <div className='container'>
-          <h2>12 January, Tuesday</h2>
+const App = () => (
+  <Provider store={store}>
+    <div className='container'>
+      <h2>12 January, Tuesday</h2>
 
-          <hr />
+      <hr />
 
-          <UnorderedList />
-          <NewItem />
-        </div>
-      </Provider>
-    )
-  }
-}
+      <UnorderedList />
+      <NewItem />
+    </div>
+  </Provider>
+)
 
 render(
   <App />,
