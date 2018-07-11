@@ -1,47 +1,51 @@
 const path = require('path')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'public/'),
+    path: path.resolve(__dirname, 'build/'),
     filename: 'js/bundle.js',
     sourceMapFilename: 'js/bundle.map'
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: './public',
+    contentBase: './build',
     historyApiFallback: true,
     port: 8080
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /(node_modules)/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['env', 'stage-0', 'react']
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['env', 'stage-0', 'react']
+        }
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader?sourceMap', 'resolve-url-loader']
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
+      },
+      {
+        test: /\.(png|jpg|gif|woff|woff2)$/,
+        loaders: ['url-loader']
       }
-    },
-    {
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader', {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => [require('autoprefixer')],
-          sourceMap: true
-        }
-      }, {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: true
-        }
-      }]
-    }]
+    ]
   },
   plugins: [
     new UglifyJsPlugin({
       sourceMap: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env': { 'NODE_ENV': JSON.stringify('production') }
     })
   ]
 }

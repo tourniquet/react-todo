@@ -4,8 +4,8 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 // components
-import UnorderedList from './components/UnorderedList'
-import NewItem from './components/NewItem'
+import UnorderedList from './components/UnorderedList/UnorderedList'
+import NewItem from './components/NewItem/NewItem'
 
 // reducer
 import reducer from './reducer'

@@ -1,27 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const mapStateToProps = state => {
-  return {
-    items: state.items,
-    value: state.value
-  }
-}
+const mapStateToProps = state => ({
+  items: state.items,
+  value: state.value
+})
 
 const NewItem = props => {
-  const addTodo = el => {
-    return {
-      type: 'ADD_TODO',
-      name: el.target.value
-    }
-  }
+  const addTodo = el => ({
+    type: 'ADD_TODO',
+    name: el.target.value
+  })
 
-  const setValue = el => {
-    return {
-      type: 'SET_VALUE',
-      value: el.target.value
-    }
-  }
+  const setValue = el => ({
+    type: 'SET_VALUE',
+    value: el.target.value
+  })
 
   return (
     <input
