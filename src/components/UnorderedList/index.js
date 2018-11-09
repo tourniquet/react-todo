@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // components
-import ListItem from '../ListItem/ListItem'
+import ListItem from '../ListItem'
 
 const mapStateToProps = state => ({
   items: state.items

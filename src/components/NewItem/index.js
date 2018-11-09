@@ -1,10 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 const mapStateToProps = state => ({
   items: state.items,
   value: state.value
 })
+
+const Input = styled.input`
+  border: 1px solid #bdc0ca;
+  display: block;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0 44px;
+`
 
 const NewItem = props => {
   const addTodo = el => ({
@@ -18,7 +27,7 @@ const NewItem = props => {
   })
 
   return (
-    <input
+    <Input
       type='text'
       placeholder='...'
       value={props.value}
