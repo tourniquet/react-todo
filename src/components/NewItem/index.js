@@ -1,5 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+
+const Input = styled.input.attrs({
+  type: 'text'
+})`
+  border: 1px solid #bdc0ca;
+  display: block;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0 44px;
+`
 
 const mapStateToProps = state => ({
   items: state.items,
@@ -18,7 +29,7 @@ const NewItem = props => {
   })
 
   return (
-    <input
+    <Input
       type='text'
       placeholder='...'
       value={props.value}

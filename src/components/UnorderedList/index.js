@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 // components
 import ListItem from '../ListItem'
@@ -7,6 +8,12 @@ import ListItem from '../ListItem'
 const mapStateToProps = state => ({
   items: state.items
 })
+
+const UnorderedListStyled = styled.ul`
+  font-size: 18px;
+  list-style: none;
+  padding: 0 24px;
+`
 
 const UnorderedList = props => {
   // set item as done with one click
@@ -22,7 +29,7 @@ const UnorderedList = props => {
   })
 
   return (
-    <ul>
+    <UnorderedListStyled>
       { props.items.map((item, i) => (
         <ListItem
           key={i}
@@ -32,7 +39,7 @@ const UnorderedList = props => {
           removeItem={el => props.dispatch(removeItem(el))}
         />
       ))}
-    </ul>
+    </UnorderedListStyled>
   )
 }
 
