@@ -1,4 +1,6 @@
-import React from 'react'
+// @flow
+
+import * as React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
@@ -17,7 +19,16 @@ const mapStateToProps = state => ({
   value: state.value
 })
 
-const NewItem = props => {
+type Props = {
+  dispatch: Function,
+  onChange: Function,
+  onKeyDown: Function,
+  placeholder: string,
+  type: string,
+  value: string
+}
+
+const NewItem = (props: Props) => {
   const addTodo = el => ({
     type: 'ADD_TODO',
     name: el.target.value
@@ -30,15 +41,15 @@ const NewItem = props => {
 
   return (
     <Input
-      type='text'
-      placeholder='...'
-      value={props.value}
       onChange={el => props.dispatch(setValue(el))}
       onKeyDown={el => {
         // add new todo only when user press Enter
         // if input value is empty, don't add new todo
         if (el.keyCode === 13 && el.target.value) props.dispatch(addTodo(el))
       }}
+      placeholder='...'
+      value={props.value}
+      type='text'
     />
   )
 }

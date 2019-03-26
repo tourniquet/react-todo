@@ -1,4 +1,6 @@
-import React from 'react'
+// @flow
+
+import * as React from 'react'
 import styled from 'styled-components'
 
 const ListItemStyled = styled.li`
@@ -13,12 +15,18 @@ const ListItemStyled = styled.li`
   }
 `
 
-const ListItem = ({ item, removeItem, switchStatus }) => (
+type Props = {
+  item: Object,
+  removeItem: Function,
+  switchStatus: Function
+}
+
+const ListItem = ({ item, removeItem, switchStatus }: Props) => (
   <ListItemStyled
+    className={item.done ? 'done' : null}
     id={item.id}
     onClick={switchStatus}
     onDoubleClick={removeItem}
-    className={item.done ? 'done' : null}
   >
     {item.name}
   </ListItemStyled>

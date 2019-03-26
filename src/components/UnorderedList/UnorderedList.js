@@ -1,9 +1,11 @@
-import React from 'react'
+// @flow
+
+import * as React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 // components
-import ListItem from '../ListItem'
+import ListItem from '../ListItem/ListItem'
 
 const mapStateToProps = state => ({
   items: state.items
@@ -15,7 +17,12 @@ const UnorderedListStyled = styled.ul`
   padding: 0 24px;
 `
 
-const UnorderedList = props => {
+type Props = {
+  dispatch: Function,
+  items: Array<Object>
+}
+
+const UnorderedList = ({dispatch, items}: Props) => {
   // set item as done with one click
   const switchStatus = el => ({
     type: 'DONE_TODO',
@@ -30,13 +37,13 @@ const UnorderedList = props => {
 
   return (
     <UnorderedListStyled>
-      { props.items.map((item, i) => (
+      {items.map((item, i) => (
         <ListItem
-          key={i}
           id={item.id}
           item={item}
-          switchStatus={el => props.dispatch(switchStatus(el))}
-          removeItem={el => props.dispatch(removeItem(el))}
+          key={i}
+          removeItem={el => dispatch(removeItem(el))}
+          switchStatus={el => dispatch(switchStatus(el))}
         />
       ))}
     </UnorderedListStyled>

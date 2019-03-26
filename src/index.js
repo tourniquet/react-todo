@@ -1,12 +1,14 @@
-import React from 'react'
+// @flow
+
+import * as React from 'react'
 import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import styled from 'styled-components'
 
 // components
-import UnorderedList from './components/UnorderedList'
-import NewItem from './components/NewItem'
+import UnorderedList from './components/UnorderedList/UnorderedList'
+import NewItem from './components/NewItem/NewItem'
 
 // reducer
 import reducer from './reducer'
@@ -39,7 +41,10 @@ const App = () => (
   </Provider>
 )
 
+const root = document.querySelector('#container')
+if (!root) throw new Error('Could not find element with id #root')
+
 render(
   <App />,
-  document.querySelector('#container')
+  root  
 )
